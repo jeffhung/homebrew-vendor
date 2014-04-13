@@ -10,6 +10,9 @@ class GitGithub < Formula
   end
 
   def install
+    # Create library folder before install to force linking files.
+    mkdir_p "#{HOMEBREW_PREFIX}/bin/git-hub.d"
+
     system "make", "PREFIX=#{prefix}", "INSTALL_LIB=#{prefix}/bin", "install"
   end
 end
